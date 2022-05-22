@@ -1,6 +1,6 @@
 .wrapper {
   height: 64px;
-  border: 1px solid #eeeeee;
+  border: 1px solid var(--color-border-200);
 }
 .nav {
   height: 100%;
@@ -9,17 +9,22 @@
   justify-content: space-between;
 }
 
+.left,
 .right {
   display: flex;
   gap: 24px;
   align-items: center;
+  position: relative;
+}
+.left {
+  flex: 1 0 auto;
 }
 
 .divisor {
   display: block;
-  height: 30px;
+  height: 24px;
   width: 1px;
-  background: #eeeeee;
+  background: var(--color-background-200);
 }
 .links {
   display: flex;

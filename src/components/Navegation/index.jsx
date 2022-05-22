@@ -3,6 +3,7 @@ import { Logo } from "../../icons/Icon";
 import Container from "../Layout/Container";
 import styles from "./styles.module.css";
 import { ToggleTheme } from "../ToggleTheme";
+import { Search } from "../Search";
 
 export const Navegation = () => {
   return (
@@ -10,6 +11,8 @@ export const Navegation = () => {
       <Container className={styles.nav}>
         <div className={styles.left}>
           <Logo />
+          <span className={styles.divisor}></span>
+          <Search />
         </div>
         <div className={styles.right}>
           <ul className={styles.links}>

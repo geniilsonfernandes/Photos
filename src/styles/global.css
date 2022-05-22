@@ -8,13 +8,11 @@
   --color--primary: #007bfd;
   --color--primary-900: #00356e;
 
-  --color-light-700: hsl(0, 0%, 20%);
-  --color-light-600: hsl(0, 0%, 30%);
-  --color-light-500: hsl(0, 0%, 50%);
-  --color-light-400: hsl(0, 0%, 60%);
-  --color-light-300: hsl(0, 0%, 75%);
-  --color-light-200: hsl(0, 0%, 85%);
-  --color-light-100: hsl(0, 0%, 98%);
+  --color-background-200: #eeeeee;
+
+  
+  --color-border-200: #eeeeee;
+  --color-light-100: #ffffff;
 
   --color-text-100: #676767;
   --color-text-900: #1c1c1c;
@@ -23,7 +21,7 @@
 body {
   font-family: "Poppins", sans-serif;
 }
-
+input,
 button {
   font-family: "Poppins", sans-serif;
 }
