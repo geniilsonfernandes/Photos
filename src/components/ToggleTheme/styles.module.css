@@ -1,0 +1,44 @@
+.button {
+  background: transparent;
+
+  border: 1px solid #eeeeee;
+  border-radius: 19px;
+  height: 38px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--color-text-900);
+  font-size: 14px;
+  cursor: pointer;
+}
+.moon {
+  transform-origin: center;
+  animation: intoScale 100ms forwards ease-in-out;
+}
+
+.son {
+  transform-origin: center;
+  animation: scaleSun 100ms forwards ease-in-out;
+}
+@keyframes scaleSun {
+  0% {
+    transform: scale(1.7);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.traced {
+  transform-origin: center;
+  animation: intoScale 100ms forwards ease-in-out;
+}
+@keyframes intoScale {
+  0% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

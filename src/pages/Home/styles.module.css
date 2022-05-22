@@ -15,12 +15,8 @@
   --color-light-300: hsl(0, 0%, 75%);
   --color-light-200: hsl(0, 0%, 85%);
   --color-light-100: hsl(0, 0%, 98%);
-
-
-
-  
 }
 
-body {
+button body {
   font-family: "Poppins", sans-serif;
 }
