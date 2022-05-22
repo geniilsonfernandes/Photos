@@ -1,5 +1,12 @@
+import { Home } from "./pages/Home";
+import "./styles/global.css";
+
 function App() {
-  return <div className="App">Header</div>;
+  return (
+    <>
+      <Home />
+    </>
+  );
 }
 
 export default App;

@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color--primary: #007bfd;
+  --color--primary-900: #00356e;
+
+  --color-light-700: hsl(0, 0%, 20%);
+  --color-light-600: hsl(0, 0%, 30%);
+  --color-light-500: hsl(0, 0%, 50%);
+  --color-light-400: hsl(0, 0%, 60%);
+  --color-light-300: hsl(0, 0%, 75%);
+  --color-light-200: hsl(0, 0%, 85%);
+  --color-light-100: hsl(0, 0%, 98%);
+
+
+
+  
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
