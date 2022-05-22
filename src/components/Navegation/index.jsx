@@ -17,10 +17,10 @@ export const Navegation = () => {
         <div className={styles.right}>
           <ul className={styles.links}>
             <li className={`${styles.link} ${true && styles.active}`}>
-              Discovery
+              <a href="/">Discovery</a>
             </li>
             <li className={`${styles.link} ${false && styles.active}`}>
-              My collections
+              <a href="/">My collections</a>
             </li>
           </ul>
           <span className={styles.divisor}></span>

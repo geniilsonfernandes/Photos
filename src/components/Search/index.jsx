@@ -14,30 +14,32 @@ export const Search = ({ rounded = true }) => {
   }
 
   return (
-    <div
-      className={`${styles.wrapper} ${focus && styles.focus}`}
-      data-rounded={rounded}
-    >
-      <button className={styles.icon}>
-        <SearchIcon />
-      </button>
-      <input
-        type="text"
-        placeholder="Search here"
-        className={styles.input}
-        value={value}
-        onChange={({ target }) => handlerChange(target.value)}
-        onFocus={() => setFocus(true)}
-        onBlur={() => setFocus(false)}
-      />
-      {value && (
-        <button
-          className={`${styles.icon} ${styles.clear}`}
-          onClick={() => clear()}
-        >
-          <XisIcon />
+    <>
+      <div
+        className={`${styles.wrapper} ${focus && styles.focus}`}
+        data-rounded={rounded}
+      >
+        <button className={styles.icon}>
+          <SearchIcon />
         </button>
-      )}
-    </div>
+        <input
+          type="text"
+          placeholder="Search here"
+          className={styles.input}
+          value={value}
+          onChange={({ target }) => handlerChange(target.value)}
+          onFocus={() => setFocus(true)}
+          onBlur={() => setFocus(false)}
+        />
+        {value && (
+          <button
+            className={`${styles.icon} ${styles.clear}`}
+            onClick={() => clear()}
+          >
+            <XisIcon />
+          </button>
+        )}
+      </div>
+    </>
   );
 };

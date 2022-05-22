@@ -9,13 +9,21 @@
   --color--primary-900: #00356e;
 
   --color-background-200: #eeeeee;
+  --color-background-100: #ffffff;
 
-  
   --color-border-200: #eeeeee;
   --color-light-100: #ffffff;
 
-  --color-text-100: #676767;
-  --color-text-900: #1c1c1c;
+  --color-text-100: hsl(0, 0%, 100%);
+  --color-text-200: hsl(0, 0%, 90%);
+  --color-text-300: hsl(0, 0%, 80%);
+  --color-text-400: hsl(0, 0%, 70%);
+  --color-text-500: hsl(0, 0%, 60%);
+  --color-text-600: hsl(0, 0%, 50%);
+  --color-text-700: hsl(0, 0%, 40%);
+  --color-text-800: hsl(0, 0%, 30%);
+  --color-text-900: hsl(0, 0%, 20%);
+  --color-text-000: hsl(0, 0%, 10%);
 }
 
 body {

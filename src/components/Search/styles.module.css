@@ -11,22 +11,30 @@
   border: 1px solid var(--color-border-200);
   transition: background ease-in-out 200ms;
 }
-.wrapper[data-rounded="false"] {
-  background: var(--color-background-100);
-  border-radius: 4px;
-  height: 54px;
-}
+
 .wrapper.focus {
   background: var(--color-background-100);
   border: 1px solid var(--color-border-200);
 }
+
+/* rounded */
+.wrapper[data-rounded="false"] {
+  background: var(--color-background-100);
+  border-radius: 4px;
+  height: 54px;
+  background: var(--color-background-200);
+}
+.wrapper[data-rounded="false"].focus {
+  background: var(--color-background-100);
+  border: 1px solid var(--color-border-200);
+}
+
 .icon {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 38px;
   width: 56px;
-  outline: none;
   border: none;
   background: transparent;
   cursor: pointer;
@@ -38,8 +46,12 @@
   width: 100%;
   font-weight: 500;
   padding-right: 56px;
+  color: var(--color-text-900);
 }
 
+.input::placeholder {
+  color: var(--color-text-700);
+}
 .clear {
   position: absolute;
   right: 0;
