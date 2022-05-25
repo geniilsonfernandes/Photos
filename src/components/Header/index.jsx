@@ -17,7 +17,7 @@ export const Header = () => {
             <p>The internet’s source of freely-usable images.</p>
             <p>Powered by creators everywhere.</p>
           </span>
-          <Search rounded={false} />
+          <Search rounded={false} showSugest={true} />
         </div>
       </div>
     </header>

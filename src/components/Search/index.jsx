@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./styles.module.css";
 import { SearchIcon, XisIcon } from "../../icons/Icon";
 
-export const Search = ({ rounded = true }) => {
+export const Search = ({ rounded = true, showSugest = false }) => {
   const [value, setValue] = useState("");
   const [focus, setFocus] = useState(false);
 
@@ -12,11 +12,14 @@ export const Search = ({ rounded = true }) => {
   function clear() {
     setValue("");
   }
+  function setSugest(sugest) {
+    setValue(sugest);
+  }
 
   return (
-    <>
+    <div className={styles.wrapper}>
       <div
-        className={`${styles.wrapper} ${focus && styles.focus}`}
+        className={`${styles.wrapper__input} ${focus && styles.focus}`}
         data-rounded={rounded}
       >
         <button className={styles.icon}>
@@ -40,6 +43,23 @@ export const Search = ({ rounded = true }) => {
           </button>
         )}
       </div>
-    </>
+
+      {showSugest && (
+        <span className={styles.luck}>
+          Try this:
+          <ul>
+            <li className={styles.sugest} onClick={() => setSugest("Car")}>
+              Car,
+            </li>
+            <li className={styles.sugest} onClick={() => setSugest("Food")}>
+              Food,{" "}
+            </li>
+            <li className={styles.sugest} onClick={() => setSugest("Travel")}>
+              Travel
+            </li>
+          </ul>
+        </span>
+      )}
+    </div>
   );
 };

@@ -11,8 +11,16 @@
   --color-background-200: #eeeeee;
   --color-background-100: #ffffff;
 
-  --color-border-200: #eeeeee;
-  --color-light-100: #ffffff;
+  --color-border-100: hsl(0, 0%, 100%);
+  --color-border-200: hsl(0, 0%, 90%);
+  --color-border-300: hsl(0, 0%, 80%);
+  --color-border-400: hsl(0, 0%, 70%);
+  --color-border-500: hsl(0, 0%, 60%);
+  --color-border-600: hsl(0, 0%, 50%);
+  --color-border-700: hsl(0, 0%, 40%);
+  --color-border-800: hsl(0, 0%, 30%);
+  --color-border-900: hsl(0, 0%, 20%);
+  --color-border-000: hsl(0, 0%, 10%);
 
   --color-text-100: hsl(0, 0%, 100%);
   --color-text-200: hsl(0, 0%, 90%);
@@ -32,4 +40,10 @@ body {
 input,
 button {
   font-family: "Poppins", sans-serif;
+}
+.log{
+  border: 1px solid red;
+  display: flex;
+   background: var(--color-border-200);
+   border: 1px solid var(--color-border-500) ;
 }

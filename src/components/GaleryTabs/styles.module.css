@@ -1,0 +1,26 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 48px 0;
+}
+.tabs {
+  list-style: none;
+  display: flex;
+}
+.tab {
+  padding: 16px 48px;
+  border-bottom: 2px solid var(--color-border-300);
+  cursor: pointer;
+  transition: border ease-in-out 300ms;
+  color: var(--color-text-700);
+  font-weight: 500;
+}
+.tab:hover {
+  border-bottom: 2px solid var(--color-border-900);
+  color: var(--color-text-900);
+}
+.tab.active {
+  color: var(--color-text-900);
+  padding: 16px 48px;
+  border-bottom: 2px solid var(--color-border-900);
+}
