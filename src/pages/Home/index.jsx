@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Galery } from "../../components/Galery";
-import { GaleryTabs } from "../../components/GaleryTabs";
+import { Tabs } from "../../components/Tabs";
 import { Header } from "../../components/Header";
-import { Navegation } from "../../components/Navegation";
 import { getImages } from "../../service/api";
 
 const tabs = [
@@ -28,7 +27,6 @@ export const Home = () => {
     const get = async () => {
       const data = await getImages();
       setData(data.photos);
-      console.log(data);
     };
     get();
   }, []);
@@ -39,10 +37,8 @@ export const Home = () => {
 
   return (
     <>
-      <Navegation />
       <Header />
-      <span className="log"> log: tabative = {tabActive}</span>
-      <GaleryTabs
+      <Tabs
         tabs={tabs}
         tabActive={tabActive}
         changerTabActive={changerTabActive}

@@ -1,7 +1,7 @@
 .button {
   background: transparent;
 
-  border: 1px solid #eeeeee;
+  border: 1px solid var(--color-border-200);
   border-radius: 19px;
   height: 38px;
   padding: 16px;
@@ -14,7 +14,7 @@
   transition: background ease-in-out 200ms;
 }
 .button:hover {
-  background: #eeeeee;
+  background: var(--color-background-200);
 }
 .moon {
   transform-origin: center;

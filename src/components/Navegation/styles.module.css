@@ -6,9 +6,12 @@
   height: 100%;
   display: flex;
   align-items: center;
+  gap: 48px;
   justify-content: space-between;
 }
-
+.left {
+  width: 100%;
+}
 .left,
 .right {
   display: flex;
@@ -16,8 +19,9 @@
   align-items: center;
   position: relative;
 }
-.left {
-  flex: 1 0 auto;
+
+.right {
+  margin-left: auto;
 }
 
 .divisor {
@@ -38,6 +42,7 @@
   color: var(--color-text-700);
   cursor: pointer;
   position: relative;
+  white-space: nowrap;
 }
 .link a {
   text-decoration: none;

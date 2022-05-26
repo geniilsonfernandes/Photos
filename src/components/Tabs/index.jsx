@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./styles.module.css";
 
-export const GaleryTabs = ({ tabs, tabActive, changerTabActive }) => {
+export const Tabs = ({ tabs, tabActive, changerTabActive }) => {
   return (
     <div className={styles.wrapper}>
       <ul className={styles.tabs}>
