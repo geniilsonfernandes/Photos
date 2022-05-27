@@ -7,8 +7,8 @@ import { CardPhoto } from "../CardPhoto";
 
 export const Galery = ({ data = false }) => {
   const breakpointColumnsObj = {
-    default: 4,
-    1024: 4,
+    default: 3,
+    1024: 3,
     768: 2,
     400: 1,
   };

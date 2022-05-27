@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import styles from "./styles.module.css";
 import { SearchIcon, XisIcon } from "../../icons/Icon";
+import { useSearchContext } from "../../context/SearchContext";
 
 export const Search = ({ rounded = true, showSugest = false }) => {
   const [value, setValue] = useState("");
   const [focus, setFocus] = useState(false);
+
+  const { query, queryPhoto } = useSearchContext();
 
   function handlerChange(value) {
     setValue(value);
@@ -13,16 +16,22 @@ export const Search = ({ rounded = true, showSugest = false }) => {
     setValue("");
   }
   function setSugest(sugest) {
-    setValue(sugest);
+    queryPhoto(sugest);
   }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (value !== "") queryPhoto(value);
+  };
 
   return (
     <div className={styles.wrapper}>
-      <div
+      <form
+        onSubmit={handleSubmit}
         className={`${styles.wrapper__input} ${focus && styles.focus}`}
         data-rounded={rounded}
       >
-        <button className={styles.icon}>
+        <button className={styles.icon} type="submit">
           <SearchIcon />
         </button>
         <input
@@ -33,6 +42,7 @@ export const Search = ({ rounded = true, showSugest = false }) => {
           onChange={({ target }) => handlerChange(target.value)}
           onFocus={() => setFocus(true)}
           onBlur={() => setFocus(false)}
+          required
         />
         {value && (
           <button
@@ -42,19 +52,18 @@ export const Search = ({ rounded = true, showSugest = false }) => {
             <XisIcon />
           </button>
         )}
-      </div>
-
+      </form>
       {showSugest && (
         <span className={styles.luck}>
           Try this:
           <ul>
-            <li className={styles.sugest} onClick={() => setSugest("Car")}>
+            <li className={styles.sugest} onClick={() => setSugest("car")}>
               Car,
             </li>
-            <li className={styles.sugest} onClick={() => setSugest("Food")}>
+            <li className={styles.sugest} onClick={() => setSugest("food")}>
               Food,{" "}
             </li>
-            <li className={styles.sugest} onClick={() => setSugest("Travel")}>
+            <li className={styles.sugest} onClick={() => setSugest("travel")}>
               Travel
             </li>
           </ul>

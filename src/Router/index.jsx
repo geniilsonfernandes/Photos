@@ -7,7 +7,7 @@ export const Router = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="photos" element={<Photos />} />
+      <Route path="/photos/:id" element={<Photos />} />
     </Routes>
   );
 };

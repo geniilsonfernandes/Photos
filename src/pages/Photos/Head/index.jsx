@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { useSearchContext } from "../../../context/SearchContext";
 import { DotIcon } from "../../../icons/Icon";
 import styles from "./styles.module.css";
 
 export const Head = () => {
   const [dropMenuActive, setDropMenuActive] = useState(null);
+  const { query } = useSearchContext();
 
   function toggle(i) {
     if (dropMenuActive === i) {
@@ -12,15 +14,12 @@ export const Head = () => {
     setDropMenuActive(i);
   }
 
-
-  
-
   return (
     <div className={styles.wrapper}>
       <div className={styles.head}>
         <div className={styles.results}>
           <span>Results</span>
-          <h1>Car</h1>
+          <h1>{query}</h1>
         </div>
         <div className={styles.filters}>
           <span>Filters:</span>
