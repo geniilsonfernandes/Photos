@@ -7,7 +7,7 @@ export const Search = ({ rounded = true, showSugest = false }) => {
   const [value, setValue] = useState("");
   const [focus, setFocus] = useState(false);
 
-  const { query, queryPhoto } = useSearchContext();
+  const { searchPhoto } = useSearchContext();
 
   function handlerChange(value) {
     setValue(value);
@@ -16,12 +16,12 @@ export const Search = ({ rounded = true, showSugest = false }) => {
     setValue("");
   }
   function setSugest(sugest) {
-    queryPhoto(sugest);
+    searchPhoto(sugest);
   }
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (value !== "") queryPhoto(value);
+    if (value !== "") searchPhoto(value);
   };
 
   return (
