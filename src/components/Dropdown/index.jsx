@@ -1,4 +1,11 @@
-import React, { Children, cloneElement, useEffect, useState } from "react";
+import React, {
+  Children,
+  cloneElement,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { DotIcon } from "../../icons/Icon";
 import styles from "./styles.module.css";
 
@@ -8,11 +15,11 @@ export const DropdownContext = ({ children }) => {
     const id = e.target.getAttribute("data-id");
     id === isOpen ? setIsOpen(null) : setIsOpen(id);
   };
-  const close = () => {
+  const close = useCallback(() => {
     setIsOpen(null);
-  };
+  }, []);
+
   return Children.map(children, (child) => {
-    console.log(child);
     const newChild = cloneElement(child, {
       isOpen,
       onToggle,
@@ -20,6 +27,29 @@ export const DropdownContext = ({ children }) => {
     });
     return newChild;
   });
+};
+
+const Context = ({ children, onClick }) => {
+  const dropMenuEl = useRef(null);
+  useEffect(() => {
+    const outSideClick = (e) => {
+      if (
+        dropMenuEl.current.previousSibling !== e.target &&
+        !dropMenuEl.current.contains(e.target)
+      )
+        onClick();
+    };
+    window.addEventListener("click", outSideClick);
+
+    return () => {
+      window.removeEventListener("click", outSideClick);
+    };
+  }, [onClick]);
+  return (
+    <div className={styles.drop__context} ref={dropMenuEl}>
+      {children}
+    </div>
+  );
 };
 
 export const Dropdown = ({
@@ -31,16 +61,13 @@ export const Dropdown = ({
   id,
   close,
 }) => {
-  useEffect(() => {}, []);
-
   const handleClick = (e) => {
     onToggle(e);
   };
 
-  useEffect(()=>{
-    
-  })
-
+  useEffect(() => {
+    close();
+  }, [close, selected]);
 
   return (
     <div className={styles.drop__menu}>
@@ -52,11 +79,7 @@ export const Dropdown = ({
       >
         {selected ? selected : placeholder} <DotIcon />
       </button>
-      {isOpen === id && (
-        <div className={styles.drop__context} onClick={() => close()}>
-          {children}
-        </div>
-      )}
+      {isOpen === id && <Context onClick={close}>{children}</Context>}
     </div>
   );
 };
