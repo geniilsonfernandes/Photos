@@ -1,8 +1,11 @@
 import React, { createContext, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-const apikey = "563492ad6f91700001000001f0f1f74ec6814572866d9f6207bcd52d";
 
 const SearchContext = createContext();
+// config 
+// aqui vai guarda o estdos da querys orietação, cor,
+// tamanho e vai montar o url
+// 
 
 export const SearchProvider = ({ children }) => {
   const [query, setQuery] = useState("quey");

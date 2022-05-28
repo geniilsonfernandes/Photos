@@ -1,0 +1,44 @@
+.drop__menu {
+  position: relative;
+}
+.drop__button {
+  height: 38px;
+  padding: 0 16px;
+  border-radius: 38px;
+  border: 1px solid var(--color-border-200);
+  background: transparent;
+  cursor: pointer;
+  color: var(--color-text-700);
+  font-size: 14px;
+  transition: background ease-in-out 200ms;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.drop__button:hover {
+  background: var(--color-background-200);
+}
+.drop__button svg {
+  margin-left: 8px;
+  transition: transform ease-in-out 100ms;
+}
+[data-context-active="true"].drop__button svg {
+  transform: rotate(-180deg);
+}
+
+.drop__context {
+  border: 1px solid var(--color-border-200);
+  border-radius: 16px;
+  background: var(--color-background-100);
+  padding: 8px 0;
+  position: absolute;
+  right: 0;
+  top: 46px;
+  min-width: 200px;
+  box-shadow: 0px 4px 21px 1px rgba(77, 77, 77, 0.1);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}

@@ -5,3 +5,4 @@ export { ReactComponent as XisIcon } from "./xis.svg";
 export { ReactComponent as LikeIcon } from "./like.svg";
 export { ReactComponent as DownloadIcon } from "./download.svg";
 export { ReactComponent as DotIcon } from "./dot.svg";
+export { ReactComponent as CheckIcon } from "./check.svg";
