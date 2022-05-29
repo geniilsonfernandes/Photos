@@ -42,3 +42,8 @@
   flex-direction: column;
   width: 100%;
 }
+.icon {
+  margin-right: 8px;
+  user-select: none;
+  pointer-events: none;
+}

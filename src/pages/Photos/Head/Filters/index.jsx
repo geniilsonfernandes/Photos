@@ -1,86 +1,103 @@
-import React, { useState } from "react";
-import { CheckIcon } from "../../../../icons/Icon";
-import { Dropdown, DropdownContext } from "../../../../components/Dropdown";
+import React, { useEffect, useState } from "react";
+import {
+  Dropdown,
+  DropdownContext,
+  DropDownLabel,
+} from "../../../../components/Dropdown";
 import styles from "./styles.module.css";
 import { colorsFilters, orientationFilters } from "./filters";
-
-const ButtonItem = ({ active, onClick, children, value }) => {
-  return (
-    <button
-      className={`${styles.item} ${active && styles.active}`}
-      onClick={() => onClick(value)}
-    >
-      <span>{active && <CheckIcon />}</span>
-      {children}
-    </button>
-  );
-};
+import { ButtonColor, ButtonItem } from "./FiltersButtons";
 
 export const Filters = () => {
-  const [orientation, setOrientation] = useState(orientationFilters[0].name);
-
+  const [orientationSelected, setOrientationSelected] = useState(null);
+  const [colorSelected, setColorSelected] = useState(null);
   const [haveFilter, setHaveFilter] = useState(false);
-  const [color, setColor] = useState("Any color");
 
   function changeOrientation(value) {
-    setOrientation(value);
+    setOrientationSelected(value);
     setHaveFilter(true);
   }
   function changeColor(value) {
-    setColor(value);
+    setHaveFilter(true);
+    setColorSelected(value);
   }
   function clear() {
     setHaveFilter(false);
-    setOrientation(orientationFilters[0].name);
+    setColorSelected(null);
+    setOrientationSelected(null);
   }
 
-  return (
-    <div className={styles.filters}>
-      {haveFilter && (
-        <span className={styles.clear} onClick={() => clear()}>
-          Clear
-        </span>
-      )}
-      <span>Filters:</span>
+  useEffect(() => {
+    console.log({
+      orientation: orientationSelected,
+      color: colorSelected,
+    });
+  }, [orientationSelected, colorSelected]);
 
-      <DropdownContext>
-        <Dropdown
-          selected={orientation}
-          placeholder="Any orientation"
-          id="orientation"
-        >
-          {orientationFilters.map((item) => (
+  return (
+    <>
+      <div className={styles.filters}>
+        {haveFilter && (
+          <span className={styles.clear} onClick={() => clear()}>
+            Clear
+          </span>
+        )}
+        <span>Filters:</span>
+        <DropdownContext>
+          <Dropdown
+            selected={orientationSelected}
+            placeholder="Any orientation"
+            id="orientation"
+          >
             <ButtonItem
-              active={item.name === orientation}
-              key={item.id}
+              value={null}
               onClick={changeOrientation}
-              value={item.name}
+              active={orientationSelected === null}
             >
-              {item.name}
+              Any orientation
             </ButtonItem>
-          ))}
-        </Dropdown>
-        <Dropdown placeholder="Any colors" id="colors">
-          <ButtonItem>
-            <CheckIcon /> Any Colors
-          </ButtonItem>
-          <div className={styles.label}>
-            Colors:
-            <div className={styles.colors}>
-              {colorsFilters.map((color) => (
-                <button
-                  key={color.code}
-                  className={styles.color}
-                  style={{ background: color.code }}
-                  onClick={() => changeColor(color.code)}
-                >
-                  <CheckIcon />
-                </button>
-              ))}
+            {orientationFilters.map((item) => (
+              <ButtonItem
+                key={item.name}
+                value={item.value}
+                onClick={changeOrientation}
+                active={item.value === orientationSelected}
+              >
+                {item.name}
+              </ButtonItem>
+            ))}
+          </Dropdown>
+          <Dropdown
+            placeholder="Any colors"
+            id="colors"
+            selected={colorSelected}
+          >
+            <ButtonItem
+              value={null}
+              onClick={changeColor}
+              active={colorSelected === null}
+            >
+              Any orientation
+            </ButtonItem>
+            <div className={styles.label}>
+              Colors:
+              <div className={styles.colors}>
+                {colorsFilters.map((color) => (
+                  <ButtonColor
+                    key={color.name}
+                    value={color.value}
+                    color={color.value}
+                    active={colorSelected === color.value}
+                    onClick={changeColor}
+                  >
+                    {color.name}
+                  </ButtonColor>
+                ))}
+              </div>
             </div>
-          </div>
-        </Dropdown>
-      </DropdownContext>
-    </div>
+          </Dropdown>
+        </DropdownContext>
+      </div>
+    </>
   );
 };

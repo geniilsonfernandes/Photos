@@ -1,29 +1,59 @@
 export const orientationFilters = [
   {
-    id: "A",
-    name: "Any orientation",
-  },
-  {
-    id: "landscape",
     name: "Landscape",
+    value: "landscape",
   },
   {
-    id: "portrait",
     name: "Portrait",
+    value: "portrait",
   },
   {
-    id: "square",
     name: "Square",
+    value: "square",
   },
 ];
 
 export const colorsFilters = [
   {
-    code: "red",
+    value: "red",
     name: "red",
   },
   {
-    code: "orange",
+    value: "white1",
+    name: "white",
+  },
+  {
+    value: "orange",
     name: "orange",
+  },
+  {
+    value: "orange",
+    name: "ora3nge",
+  },
+
+  {
+    value: "orange",
+    name: "ora42nge",
+  },
+  {
+    value: "red",
+    name: "red432",
+  },
+  {
+    value: "orange",
+    name: "oran234ge",
+  },
+  {
+    value: "orange",
+    name: "oran24ge",
+  },
+  {
+    value: "orange",
+    name: "oran12ge",
+  },
+
+  {
+    value: "orange",
+    name: "orafdsnge",
   },
 ];

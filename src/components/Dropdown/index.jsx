@@ -58,6 +58,7 @@ export const Dropdown = ({
   placeholder,
   isOpen,
   onToggle,
+
   id,
   close,
 }) => {
@@ -82,4 +83,8 @@ export const Dropdown = ({
       {isOpen === id && <Context onClick={close}>{children}</Context>}
     </div>
   );
+};
+
+export const DropDownLabel = ({ children }) => {
+  return <button>{children}</button>;
 };
