@@ -22,11 +22,13 @@ const tabs = [
 export const Home = () => {
   const [data, setData] = useState([]);
   const [tabActive, setTabActive] = useState(1);
-
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
     const get = async () => {
+      setLoading(true);
       const data = await getImages();
       setData(data.photos);
+      setLoading(false);
     };
     get();
   }, []);
@@ -43,7 +45,7 @@ export const Home = () => {
         tabActive={tabActive}
         changerTabActive={changerTabActive}
       />
-      <Galery data={data} />
+      <Galery data={data} loading={loading} />
     </>
   );
 };

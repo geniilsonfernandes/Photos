@@ -1,43 +1,41 @@
 import React, { useEffect, useState } from "react";
-import {
-  Dropdown,
-  DropdownContext,
-  DropDownLabel,
-} from "../../../../components/Dropdown";
+import { Dropdown, DropdownContext } from "../../../../components/Dropdown";
+import { useSearchContext } from "../../../../context/SearchContext.js";
 import styles from "./styles.module.css";
 import { colorsFilters, orientationFilters } from "./filters";
 import { ButtonColor, ButtonItem } from "./FiltersButtons";
 
 export const Filters = () => {
+  const { setOrientation, setColor, setFilter, filters } = useSearchContext();
   const [orientationSelected, setOrientationSelected] = useState(null);
   const [colorSelected, setColorSelected] = useState(null);
-  const [haveFilter, setHaveFilter] = useState(false);
 
+  // filters selectrs
   function changeOrientation(value) {
     setOrientationSelected(value);
-    setHaveFilter(true);
+    setOrientation(value);
   }
   function changeColor(value) {
-    setHaveFilter(true);
+    setColor(value);
     setColorSelected(value);
   }
+  // clers filters
   function clear() {
-    setHaveFilter(false);
+    setFilter(null);
     setColorSelected(null);
     setOrientationSelected(null);
   }
 
   useEffect(() => {
-    console.log({
-      orientation: orientationSelected,
-      color: colorSelected,
-    });
-  }, [orientationSelected, colorSelected]);
+    orientationSelected !== null || colorSelected !== null
+      ? setFilter(true)
+      : setFilter(false);
+  }, [orientationSelected, colorSelected, setFilter]);
 
   return (
     <>
       <div className={styles.filters}>
-        {haveFilter && (
+        {filters && (
           <span className={styles.clear} onClick={() => clear()}>
             Clear
           </span>
